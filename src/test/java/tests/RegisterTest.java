@@ -18,7 +18,7 @@ import pageobjects.RegisterAccountPage;
 
 public class RegisterTest extends Base{
 	
-	// This is a comment added by Arun Motoori
+	// This is a comment added by Arun Motoori 
 
 	@Test(priority=1)
 	public void registerWithAllDetails() {
