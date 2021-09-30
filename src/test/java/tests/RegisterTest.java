@@ -70,6 +70,30 @@ public class RegisterTest extends Base{
 		
 	}
 	
+	
+	@Test(priority=3)
+	public void registerWithExistingEmailAddress() {
+		
+		HomePage homePage = new HomePage(driver);
+		
+		homePage.clickOnMyAccountDropMenu();
+		homePage.selectRegisterOption();
+		
+		RegisterAccountPage registerAccountPage = new RegisterAccountPage(driver);
+		
+		registerAccountPage.enterFirstName(prop.getProperty("firstName"));
+		registerAccountPage.enterLastName(prop.getProperty("lastName"));
+		registerAccountPage.enterEmailAddress(prop.getProperty("registeredEmailAddress"));
+		registerAccountPage.enterTelephoneNumber(prop.getProperty("telephone"));
+		registerAccountPage.enterPassword(prop.getProperty("password"));
+		registerAccountPage.enterConfirmPassword(prop.getProperty("password"));
+		registerAccountPage.selectPrivacyPolicyCheckboxField();
+		registerAccountPage.clickOnContinueButton();
+		
+		Assert.assertTrue(registerAccountPage.retrieveWarmingMessage().contains("Warning: E-Mail Address is already registered!"));
+		
+	}
+	
 	@BeforeMethod
 	public void setup() throws IOException {
 		

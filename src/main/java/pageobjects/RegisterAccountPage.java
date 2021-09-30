@@ -43,6 +43,9 @@ public class RegisterAccountPage {
 	@FindBy(css="input[value='Continue']")
 	private WebElement continueButton;
 	
+	@FindBy(css=".alert.alert-danger.alert-dismissible")
+	private WebElement warmingMessage;
+	
 	public void enterFirstName(String firstName) {
 		
 		firstNameTextField.sendKeys(firstName);
@@ -94,6 +97,12 @@ public class RegisterAccountPage {
 	public void clickOnContinueButton() {
 		
 		continueButton.click();
+		
+	}
+	
+	public String retrieveWarmingMessage() {
+		
+		return warmingMessage.getText();
 		
 	}
 
